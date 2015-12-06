@@ -1,0 +1,44 @@
+﻿改变VNC地址映射：
+
+
+controller IP:192.168.100.201
+compute IP:192.168.100.203
+由于服务器安全策略，外部无法访问虚拟机中的端口，需要管理员智江学长进行手动端口映射。但是我从外部需要访问架设在服务器中的compute节点的VNC 地址为192.168.100.201:6080。解决步骤
+1、找智江师兄进行端口映射：192.168.100.201:6080 —>159.226.251.139:6080
+2、分别更改controller和compute节点的/etc/nova/nova.conf配置中的VNC configuration
+controller：
+改前：
+# Vnc configuration
+novnc_enabled=true
+novncproxy_base_url=http://192.168.100.201:6080/vnc_auto.html
+novncproxy_port=6080
+vncserver_proxyclient_address=192.168.100.201
+vncserver_listen=0.0.0.0
+改后：
+# Vnc configuration
+novnc_enabled=true
+novncproxy_base_url=http://159.226.251.139:6080/vnc_auto.html
+novncproxy_port=6080
+vncserver_proxyclient_address=192.168.100.201
+vncserver_listen=0.0.0.0
+
+compute：
+改前：
+# Vnc configuration
+novnc_enabled=true
+novncproxy_base_url=http://192.168.100.201:6080/vnc_auto.html
+novncproxy_port=6080
+vncserver_proxyclient_address=192.168.100.203
+vncserver_listen=0.0.0.0
+
+改后：
+# Vnc configuration
+novnc_enabled=true
+novncproxy_base_url=http://159.226.251.139:6080/vnc_auto.html
+novncproxy_port=6080
+vncserver_proxyclient_address=192.168.100.203
+vncserver_listen=0.0.0.0
+
+
+经过试验发现，浏览器访问的url（novncproxy_base_url）是根据compute的nova.conf文件的。
+也就是说其实controller节点上的novncproxy_base_url 不改也行。
