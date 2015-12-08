@@ -1,0 +1,5 @@
+#install Django
+pip install Django
+
+#verify
+python -c "import django; print(django.get_version())"
