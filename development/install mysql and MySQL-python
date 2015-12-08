@@ -1,0 +1,6 @@
+#install mysql in ubuntu
+sudo apt-get install mysql-server
+
+#install MySQL-python
+apt-get install python-dev libmysqlclient-dev
+pip install MySQL-python
