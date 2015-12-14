@@ -2,3 +2,6 @@
 #sync database
 python manage.py makemigrations myapp
 python manage.py migrate
+
+#backend user
+python manage.py createsuperuser
