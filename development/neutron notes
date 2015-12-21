@@ -1,3 +1,7 @@
 Neutorn 自身并不提供任何网络功能，只是一个负责为低层网络设备向上提供接口的空架子。起着OpenStack网络系统中管理平台的作用。
 
 Plugin: Core Plugin(完成二层网络隔离的相关配置和实现互通性的VM的报文转发)和Service Plugin(三层网络功能及三层以上的业务应用功能)
+
+每种技术都支持，经过抽象封装了一层中间层
+
+Neutron结合SDN在结构上有三种方式：Neutron AS APP，Neutron AS part of Controller和Neutron AS Underlay
