@@ -1,0 +1,5 @@
+OpenDaylight OVSDB + OpenStack测试环境初级安装（http://pan.baidu.com/s/1jGyGl74）
+OpenStack通过ML2 Plugin，与OpenDaylight的NB API进行会话，具体网络部署的实现交由OpenDaylight Controller来实现。
+
+OpenDaylight学习文档及开发初级教程(http://pan.baidu.com/s/1mg914DU)
+
